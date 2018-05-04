@@ -13,7 +13,13 @@ class ApplicationController < ActionController::Base
   end
 
   def current_order
-    session[:order_id] ? Order.find(session[:order_id]) : Order.new
+    if session[:order_id] != nil
+      Order.find(session[:order_id])
+    else
+      order = Order.new
+      session[:order_id] = order.id
+      return order
+    end
   end
 
   def authorize

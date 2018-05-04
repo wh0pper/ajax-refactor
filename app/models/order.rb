@@ -12,10 +12,11 @@ class Order < ApplicationRecord
     self.user_id = user.id
     self.status = 2
     self.save
+    # new_order = Order.new
+    
   end
 
   def add_item(item)
-    binding.pry
     existing_product_ids = self.order_items.pluck(:product_id)
     if existing_product_ids.include?(item.product_id)
       existing_item = OrderItem.where(:product_id => item.product_id)[0]
