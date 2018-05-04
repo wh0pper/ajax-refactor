@@ -3,7 +3,10 @@
   <div class="card-image waves-effect waves-block waves-light">
     <%= image_tag "placeholder.png", class: 'activator' %>
   </div>
-  <div class="card-action">...</div>
+  <div class="card-action"><%= @product.price %></div>
 
-  <div class="card-reveal">...</div>
+  <div class="card-reveal">
+    <%= @product.description %>
+    <i class="material-icons right">close</i>
+  </div>
 </div>
