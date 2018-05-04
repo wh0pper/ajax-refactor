@@ -22,27 +22,37 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     if @product.save
+      flash[:notice] = "Product successfully created."
       redirect_to '/'
     else
+      flash[:alert] = "Something went wrong. Please try again."
       render :new
     end
   end
 
   def edit
     @product = Product.find(params[:id])
-    # @product.update(product_params)
-    # redirect_to products_path
   end
 
   def update
     @product = Product.find(params[:id])
-    @product.update(product_params)
-    redirect_to products_path
+    if @product.update(product_params)
+      flash[:notice] = "Product successfully updated."
+      redirect_to products_path
+    else
+      flash[:alert] = "Something went wrong. Please try again."
+      render :edit
+    end
   end
 
   def destroy
-    Product.find(params[:id]).destroy
-    redirect_to products_path   
+    if Product.find(params[:id]).destroy
+      flash[:notice] = "Product successfully deleted."
+      redirect_to products_path
+    else
+      flash[:alert] = "Something went wrong. Please try again."
+      render :edit
+    end
   end
 
   private
