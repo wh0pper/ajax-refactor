@@ -1,1 +1,4 @@
-$('#product-detail').html("<%= j render partial: 'detail' %> ")
+$('#product-detail').show().html("<%= j render partial: 'detail' %> ");
+$('#hide-detail').click(function(){
+  $('#product-detail').hide();
+})
