@@ -27,13 +27,13 @@ class Order < ApplicationRecord
   end
 
   def self.retrieve_or_create(user)
-    incomplete_orders = user.orders.where(:status => 1)
+    user ? incomplete_orders = user.orders.where(:status => 1) : incomplete_orders = []
     if incomplete_orders.empty?
       order = Order.create!
-      session[:order_id] = order.id
+      # session[:order_id] = order.id
       return order
     else
-      session[:order_id] = incomplete_orders.first.id
+      # session[:order_id] = incomplete_orders.first.id
       return incomplete_orders.first
     end
   end
