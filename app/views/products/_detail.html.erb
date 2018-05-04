@@ -13,10 +13,10 @@
   <div class="card-action">
     <div class="row" style="margin-bottom: 0px;">
 
-      <%= number_to_currency @product.price, class: "col s6" %>
+      <%= number_to_currency @product.price, class: "col s5" %>
       <div class="detail-quantity-form">
         <%= form_for @order_item, remote: true do |f| %>
-        <div class="col s3">
+        <div class="col s4">
           <%= f.hidden_field :product_id, value: @product.id %>
           <%= f.number_field :quantity, placeholder: "Quantity", min: 1, class: 'detail-quantity-input' %>
         </div>
