@@ -1,2 +1,3 @@
 $('div#<%= @item.id %>').html('')
 $('li#cart').html('<%= link_to "Cart | Total items: #{ cart_items }", cart_path %>')
+$('#cart-total').html('Your Total: <%= number_to_currency current_order.total_price %>')
