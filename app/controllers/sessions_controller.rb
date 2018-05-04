@@ -15,6 +15,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
+    session[:order_id] = nil
     redirect_to '/sign_in'
   end
 
