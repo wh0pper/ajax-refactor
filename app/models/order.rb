@@ -12,8 +12,6 @@ class Order < ApplicationRecord
     self.user_id = user.id
     self.status = 2
     self.save
-    # new_order = Order.new
-    
   end
 
   def add_item(item)
