@@ -14,13 +14,11 @@ class ApplicationController < ActionController::Base
 
   def current_order
     if session[:order_id]
-      order = Order.find(session[:order_id])
-      session[:order_id] = order.id
-      return order
+      Order.find(session[:order_id])
     else
       order = Order.retrieve_or_create(current_user)
       session[:order_id] = order.id
-      return order 
+      return order
     end
   end
 
