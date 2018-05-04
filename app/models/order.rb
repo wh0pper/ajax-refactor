@@ -24,13 +24,14 @@ class Order < ApplicationRecord
     else
       self.order_items.push(item)
     end
+    self.save
   end
 
   def self.retrieve_or_create(user)
     if user
-      return user.orders.where(status: 1)[0] || user.orders.create
+      return user.orders.where(status: 1)[0] || user.orders.new
     else
-      Order.create
+      Order.new
     end
   end
 end
