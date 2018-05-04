@@ -1,6 +1,12 @@
 <h3>Products</h3>
-<div id="product-detail">
 
+<% if current_user && current_user.admin? %>
+  <div class="admin-console">
+    <%= button_to "List a new product", new_product_path, method: 'get'%>
+  </div>
+<% end %>
+
+<div id="product-detail">
 </div>
 
 <div class="row">
