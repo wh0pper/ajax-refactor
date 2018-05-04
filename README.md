@@ -10,4 +10,7 @@ To set up:
 
 ## Updates from Jared
 * Address bug when user doesn't input item quantity when adding to cart by defaulting value to 1
-*
+* Incorporate the following AJAX functionality for enhanced user experience
+  * Add/Remove items to cart
+  * Show/Hide product detail card
+* Fix error in sign up routing  
