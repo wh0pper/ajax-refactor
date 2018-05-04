@@ -1,5 +1,5 @@
 <h1>Edit product.</h1>
-
+  <%= button_to "Delete this product", product_path(@product), method: 'delete' %>
   <%= form_for @product do |f| %>
     Name: <%= f.text_field :name, placeholder: @product.name %>
     Description: <%= f.text_field :description, placeholder: @product.description %>
