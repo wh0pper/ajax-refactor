@@ -9,9 +9,11 @@ class SessionsController < ApplicationController
       if current_order.user_id.nil?
         user.orders.push(current_order)
       end
+      flash[:notice] = "Successfully signed in!"
       session[:user_id] = user.id
       redirect_to '/'
     else
+      flash[:alert] = "Oops. Something went wrong. Please try again"
       redirect_to '/sign_in'
     end
   end
