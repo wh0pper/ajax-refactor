@@ -3,10 +3,33 @@
   <div class="card-image waves-effect waves-block waves-light">
     <%= image_tag "placeholder.png", class: 'activator' %>
   </div>
-  <div class="card-action"><%= @product.price %></div>
+
+  <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4">Click for more details<i class="material-icons right">more_vert</i></span>
+      <!-- <p><a href="#">This is a link</a></p> -->
+    </div>
+
+  <div class="card-action">
+    <div class="row" style="margin-bottom: 0px;">
+
+      <%= number_to_currency @product.price, class: "col s6" %>
+      <div class="detail-quantity-form">
+        <%= form_for @order_item, remote: true do |f| %>
+        <div class="col s3">
+          <%= f.hidden_field :product_id, value: @product.id %>
+          <%= f.number_field :quantity, placeholder: "Quantity", min: 1, class: 'detail-quantity-input' %>
+        </div>
+        <div class="col s3">
+          <span id="<%= @order_item.id %>" class="waves-effect waves-light btn"><%= f.submit "Add" %></span>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
 
   <div class="card-reveal">
+    <span class="card-title grey-text text-darken-4"><%= @product.name %><i class="material-icons right">close</i></span>
     <%= @product.description %>
-    <i class="material-icons right">close</i>
+
   </div>
 </div>

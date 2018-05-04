@@ -15,8 +15,18 @@
  */
 
 @import "materialize";
+@import "https://fonts.googleapis.com/icon?family=Material+Icons";
 
 #product-detail {
   width: 100%;
   height: 100%;
 }
+
+.detail-quantity-form {
+  display: block;
+  float: right;
+}
+
+// .detail-quantity-input {
+//   width: 50px;
+// }
