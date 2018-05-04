@@ -1,6 +1,8 @@
 <div class="card large sticky-action">
-  <%= @product.name %>
-
+  <span class="card-title grey-text text-darken-4"><%= @product.name %></span>
+  <div class="card-image waves-effect waves-block waves-light">
+    <%= image_tag "placeholder.png", class: 'activator' %>
+  </div>
   <div class="card-action">...</div>
 
   <div class="card-reveal">...</div>
