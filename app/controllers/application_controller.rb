@@ -16,9 +16,7 @@ class ApplicationController < ActionController::Base
     if session[:order_id]
       Order.find(session[:order_id])
     else
-      order = Order.create!
-      session[:order_id] = order.id
-      return order
+      Order.retrieve_or_create(current_user)
     end
   end
 
